@@ -1,0 +1,31 @@
+{
+  "name": "wrb-cli-tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/WhiteRiverBay/wrb-cli-tool.git"
+  },
+  "author": "Ethan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WhiteRiverBay/wrb-cli-tool/issues"
+  },
+  "homepage": "https://github.com/WhiteRiverBay/wrb-cli-tool#readme",
+  "dependencies": {
+    "@ethersproject/keccak256": "^5.7.0",
+    "@openzeppelin/merkle-tree": "^1.0.6",
+    "@uniswap/sdk-core": "^5.0.0",
+    "@uniswap/v3-periphery": "^1.4.4",
+    "@uniswap/v3-sdk": "^3.11.2",
+    "commander": "^12.1.0",
+    "ethers": "^6.12.1",
+    "openai": "^4.47.1",
+    "prompt-sync": "^4.2.0"
+  }
+}

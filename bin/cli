@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# check if node is installed
+if ! [ -x "$(command -v node)" ]; then
+  echo 'Error: node is not installed.' >&2
+  exit 1
+fi
+
+# check if npm is installed
+if ! [ -x "$(command -v npm)" ]; then
+  echo 'Error: npm is not installed.' >&2
+  exit 1
+fi
+
+# check the node version >= 20
+NODE_VERSION=$(node -v)
+if [ ${NODE_VERSION:1:2} -lt 20 ]; then
+  echo 'Error: node version must be >= 20.' >&2
+  exit 1
+fi
+
+# if node_modules not exists install
+if [ ! -d "node_modules" ]; then
+  npm install
+fi
+
+# run, pass all parameters to index.js
+node src/index.js $@
