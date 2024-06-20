@@ -7,12 +7,11 @@ export const Call = async (options) => {
         const abiFile = options.abiFile;
         
         const provider = getProvider(options.rpc);
-        const wallet = new ethers.Wallet(options.privateKey, provider);
     
         if (abiFile) {
             const abiContent = fs.readFileSync(abiFile);
             const abi = JSON.parse(abiContent);
-            const contract = new ethers.Contract(options.contract, abi, wallet);
+            const contract = new ethers.Contract(options.contract, abi, provider);
             
             const method = options.method;
             console.log('method:', method);
