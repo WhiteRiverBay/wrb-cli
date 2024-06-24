@@ -15,7 +15,7 @@ export const Call = async (options) => {
             
             const method = options.method;
             console.log('method:', method);
-            const args = options.args.split('|');
+            const args = options.args ? options.args.split('|') : '';
             console.log('args:', args)
     
             const _args = [];
@@ -35,11 +35,13 @@ export const Call = async (options) => {
                 }
                     
             }
-            const data = contract.interface.encodeFunctionData(method, _args);
+            // const data = options.args ? contract.interface.encodeFunctionData(method, _args)
+            //     :contract.interface.encodeFunctionData(method);
             // console.log('contract:', contract);
             // console.log('method:', method);
             // console.log('data:', data);
-            const result = await contract[method](..._args);
+            const result = options.args ? await contract[method](..._args)
+                :await contract[method]();
             console.log('result:', result);
         } else {
             console.log('no abi file');
